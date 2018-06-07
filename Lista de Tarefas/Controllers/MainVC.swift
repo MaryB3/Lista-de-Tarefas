@@ -10,14 +10,28 @@ import UIKit
 
 class MainVC: UITableViewController {
     
-    var itemArray = ["One", "Two", "Three"]
+    var itemArray = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let newItem = Item()
+        newItem.tile = "One"
+        newItem.done = true
+        itemArray.append(newItem)
+        
+        let newItem2 = Item()
+        newItem2.tile = "Two"
+        itemArray.append(newItem2)
+        
+         let newItem3 = Item()
+        newItem3.tile = "Three"
+        itemArray.append(newItem3)
+
+        
     }
     
-    //MARK: TableView DataSource
+    //MARK - TableView DataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
@@ -26,28 +40,32 @@ class MainVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath)
+    
+        let item = itemArray[indexPath.row]
         
-        cell.textLabel?.text = itemArray[indexPath.row]
+        cell.textLabel?.text = item.tile
+        
+        
+        if item.done { cell.accessoryType = .checkmark }
+        else { cell.accessoryType = .none }
         
         return cell
         
     }
     
-    //MARK: TableView Delegate
+    //MARK - TableView Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-             tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        
+        tableView.reloadData()
         
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
-    //MARK: Add new Itens
+    //MARK - Add new Itens
     
     @IBAction func btnAddPressed(_ sender: Any) {
         
@@ -64,7 +82,10 @@ class MainVC: UITableViewController {
             
             if !(itemTxt.text?.isEmpty)! {
             
-                self.itemArray.append(itemTxt.text!)
+                let item = Item()
+                item.tile = itemTxt.text!
+                
+                self.itemArray.append(item)
                 self.tableView.reloadData()
                 
             }
@@ -77,7 +98,5 @@ class MainVC: UITableViewController {
         
     }
     
-
-
 }
 

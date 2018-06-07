@@ -12,6 +12,7 @@
 		0CC32FCA20C971F60056C539 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC32FC820C971F60056C539 /* Main.storyboard */; };
 		0CC32FCC20C971F80056C539 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC32FCB20C971F80056C539 /* Assets.xcassets */; };
 		0CC32FCF20C971F80056C539 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC32FCD20C971F80056C539 /* LaunchScreen.storyboard */; };
+		0CC32FD720C993BD0056C539 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC32FD620C993BD0056C539 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		0CC32FCB20C971F80056C539 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CC32FCE20C971F80056C539 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CC32FD020C971F80056C539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CC32FD620C993BD0056C539 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,46 @@
 			isa = PBXGroup;
 			children = (
 				0CC32FC420C971F60056C539 /* AppDelegate.swift */,
-				0CC32FC620C971F60056C539 /* MainVC.swift */,
-				0CC32FC820C971F60056C539 /* Main.storyboard */,
-				0CC32FCB20C971F80056C539 /* Assets.xcassets */,
-				0CC32FCD20C971F80056C539 /* LaunchScreen.storyboard */,
+				0CC32FD820C993C50056C539 /* Data Model */,
+				0CC32FD920C993D70056C539 /* Controllers */,
+				0CC32FDB20C9941E0056C539 /* Views */,
+				0CC32FDA20C993E40056C539 /* Supporting Files */,
 				0CC32FD020C971F80056C539 /* Info.plist */,
 			);
 			path = "Lista de Tarefas";
+			sourceTree = "<group>";
+		};
+		0CC32FD820C993C50056C539 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CC32FD620C993BD0056C539 /* Item.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		0CC32FD920C993D70056C539 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0CC32FC620C971F60056C539 /* MainVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0CC32FDA20C993E40056C539 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0CC32FCB20C971F80056C539 /* Assets.xcassets */,
+				0CC32FCD20C971F80056C539 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0CC32FDB20C9941E0056C539 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0CC32FC820C971F60056C539 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CC32FC720C971F60056C539 /* MainVC.swift in Sources */,
+				0CC32FD720C993BD0056C539 /* Item.swift in Sources */,
 				0CC32FC520C971F60056C539 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
