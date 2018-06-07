@@ -33,7 +33,14 @@
                             <outlet property="delegate" destination="ncy-qH-oEr" id="ijJ-75-qmt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lista de Tarefas" id="Z9T-fD-yr3"/>
+                    <navigationItem key="navigationItem" title="Lista de Tarefas" id="Z9T-fD-yr3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vRQ-B6-rvS">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnAddPressed:" destination="ncy-qH-oEr" id="kBw-zW-UFD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61i-QX-V66" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

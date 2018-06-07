@@ -10,13 +10,14 @@ import UIKit
 
 class MainVC: UITableViewController {
     
-    let itemArray = ["One", "Two", "Three"]
+    var itemArray = ["One", "Two", "Three"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    //MARK: TableView DataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
@@ -32,6 +33,8 @@ class MainVC: UITableViewController {
         
     }
     
+    //MARK: TableView Delegate
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
@@ -43,6 +46,37 @@ class MainVC: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    
+    //MARK: Add new Itens
+    
+    @IBAction func btnAddPressed(_ sender: Any) {
+        
+        var itemTxt = UITextField()
+        
+        let alert = UIAlertController(title: "Adicionar novo ítem", message: "", preferredStyle: .alert)
+        
+        alert.addTextField { (alertTxtField) in
+            alertTxtField.placeholder = "Criar novo ítem"
+            itemTxt = alertTxtField
+        }
+        
+        let action = UIAlertAction(title: "Adicinar", style: .default) { (action) in
+            
+            if !(itemTxt.text?.isEmpty)! {
+            
+                self.itemArray.append(itemTxt.text!)
+                self.tableView.reloadData()
+                
+            }
+            
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
 
 
 }
